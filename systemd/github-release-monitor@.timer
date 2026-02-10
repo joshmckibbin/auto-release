@@ -1,0 +1,19 @@
+[Unit]
+Description=GitHub Release Monitor Timer (%i)
+Requires=github-release-monitor@%i.service
+
+[Timer]
+# Run every 30 minutes
+OnCalendar=*:0/30
+
+# Run 2 minutes after boot if we missed a scheduled run
+OnBootSec=2min
+
+# Don't run multiple instances
+Unit=github-release-monitor@%i.service
+
+# Add some randomization to avoid thundering herd if multiple servers
+RandomizedDelaySec=60
+
+[Install]
+WantedBy=timers.target

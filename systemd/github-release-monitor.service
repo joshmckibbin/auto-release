@@ -1,0 +1,29 @@
+[Unit]
+Description=GitHub Release Monitor
+After=network.target
+
+[Service]
+Type=oneshot
+User=github-monitor
+Group=github-monitor
+ExecStart=/opt/github-monitor/github-release-monitor.sh --config /opt/github-monitor/github-release-monitor.conf
+WorkingDirectory=/opt/github-monitor
+
+# Security settings
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/opt/releases /var/log
+PrivateDevices=yes
+ProtectControlGroups=yes
+ProtectKernelModules=yes
+ProtectKernelTunables=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+
+# Environment
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+
+[Install]
+WantedBy=multi-user.target
