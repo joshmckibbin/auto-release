@@ -153,6 +153,10 @@ VERBOSE=false
 
 For detailed setup instructions, see [SETUP.md](SETUP.md).
 
+## AI Assistance Disclaimer
+
+This project was developed with assistance from AI tools including GitHub Copilot and Claude. While AI helped with code generation, structure, and documentation, all functionality has been reviewed and the project is designed for production use. Users should test thoroughly in their own environments and review all code before deployment.
+
 ## License
 
 MIT License - Feel free to modify and use in your projects.
